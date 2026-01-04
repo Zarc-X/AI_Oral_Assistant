@@ -1,0 +1,19 @@
+# 评分模块依赖
+# 基于树莓派的英语听说练习助手系统
+
+# 核心依赖
+numpy>=1.21.0
+scipy>=1.7.0
+
+# 音频处理
+librosa>=0.9.0
+soundfile>=0.10.0
+
+# NLP处理（可选，但推荐）
+spacy>=3.4.0
+# 需要安装英文模型: python -m spacy download en_core_web_sm
+wordfreq>=3.0.0
+
+# 开发和测试
+# pytest>=7.0.0
+

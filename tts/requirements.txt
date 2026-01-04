@@ -1,0 +1,22 @@
+# TTS语音合成模块依赖
+# 基于树莓派的英语听说练习助手系统
+
+# 核心依赖
+numpy>=1.21.0
+
+# 音频处理 (二选一)
+sounddevice>=0.4.0    # 推荐: 更简洁的API
+# pyaudio>=0.2.11     # 备选: 需要安装portaudio
+
+# TTS引擎 (推荐使用piper-tts)
+piper-tts>=1.2.0      # Piper TTS引擎
+
+# ONNX运行时 (piper-tts已包含，可选单独安装)
+# onnxruntime>=1.15.0
+
+# 可选: Edge-TTS (在线备选方案)
+# edge-tts>=6.1.0
+
+# 开发和测试
+# pytest>=7.0.0
+# pytest-cov>=4.0.0
