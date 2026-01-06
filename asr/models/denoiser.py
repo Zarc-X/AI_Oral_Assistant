@@ -2,12 +2,18 @@
 音频去噪模块
 实现谱减法和神经网络去噪算法
 """
-import torch
-import torchaudio
 import numpy as np
 import warnings
 
 warnings.filterwarnings("ignore")
+
+# torch 是可选的（树莓派上可能不安装）
+try:
+    import torch
+    import torchaudio
+    TORCH_AVAILABLE = True
+except ImportError:
+    TORCH_AVAILABLE = False
 
 
 class Denoiser:
@@ -29,6 +35,11 @@ class Denoiser:
     
     def _load_pretrained_model(self):
         """加载预训练模型（在树莓派上可能较慢）"""
+        if not TORCH_AVAILABLE:
+            # 如果没有torch，直接使用轻量级方法
+            self._load_lightweight_model()
+            return
+        
         try:
             # 尝试加载轻量级模型
             from asteroid.models import BaseModel
@@ -72,45 +83,50 @@ class Denoiser:
     
     def _spectral_subtraction(self, audio, sr=16000, noise_reduction=0.5):
         """
-        经典谱减法
+        经典谱减法（使用librosa，不依赖torch）
         """
-        # 转换为torch张量
-        if isinstance(audio, np.ndarray):
-            audio_tensor = torch.FloatTensor(audio)
-        else:
-            audio_tensor = audio
+        try:
+            import librosa
+            import scipy.signal as signal
+        except ImportError:
+            # 如果连librosa都没有，直接返回原音频
+            return audio
         
-        # 计算STFT
+        # 确保是numpy数组
+        if not isinstance(audio, np.ndarray):
+            audio = np.array(audio, dtype=np.float32)
+        
+        # 使用librosa计算STFT
         n_fft = 512
         hop_length = 160
-        window = torch.hann_window(n_fft)
+        stft = librosa.stft(audio, n_fft=n_fft, hop_length=hop_length)
         
-        stft = torch.stft(audio_tensor, n_fft=n_fft, hop_length=hop_length,
-                         window=window, return_complex=True)
-        
-        # 计算幅度谱
-        magnitude = torch.abs(stft)
-        phase = torch.angle(stft)
+        # 计算幅度谱和相位谱
+        magnitude = np.abs(stft)
+        phase = np.angle(stft)
         
         # 估计噪声谱（使用前几帧）
         noise_frames = 10
-        noise_estimate = torch.mean(magnitude[:, :noise_frames], dim=1, keepdim=True)
+        noise_estimate = np.mean(magnitude[:, :noise_frames], axis=1, keepdims=True)
         
         # 谱减法
         enhanced_magnitude = magnitude - noise_reduction * noise_estimate
-        enhanced_magnitude = torch.clamp(enhanced_magnitude, min=1e-6)
+        enhanced_magnitude = np.maximum(enhanced_magnitude, 1e-6)
         
         # 重建复STFT
-        enhanced_stft = enhanced_magnitude * torch.exp(1j * phase)
+        enhanced_stft = enhanced_magnitude * np.exp(1j * phase)
         
         # ISTFT
-        enhanced_audio = torch.istft(enhanced_stft, n_fft=n_fft, hop_length=hop_length,
-                                    window=window, length=len(audio_tensor))
+        enhanced_audio = librosa.istft(enhanced_stft, hop_length=hop_length, length=len(audio))
         
-        return enhanced_audio.numpy()
+        return enhanced_audio
     
     def _neural_denoise(self, audio, sr=16000):
         """使用神经网络去噪"""
+        if not TORCH_AVAILABLE:
+            # 如果没有torch，回退到谱减法
+            return self._spectral_subtraction(audio, sr)
+        
         try:
             # 转换为模型输入格式
             audio_tensor = torch.FloatTensor(audio).unsqueeze(0).to(self.device)

@@ -8,7 +8,7 @@ import urllib.request
 import tarfile
 import zipfile
 import shutil
-from config import BASE_DIR, MODEL_CONFIG
+from .config import BASE_DIR, MODEL_CONFIG
 
 # Piper模型下载链接
 MODEL_URLS = {

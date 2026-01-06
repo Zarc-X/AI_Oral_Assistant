@@ -1,0 +1,30 @@
+# 树莓派口语练习助手 - Conda环境配置
+name: oral_assistant
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # 强制使用标准CPython，不是PyPy
+  - python=3.9.23=*_cpython
+  - pip
+  # 科学计算基础包（用conda安装，避免编译）
+  - numpy=1.26.*
+  - scipy=1.11.*
+  - pandas
+  - matplotlib
+  # 音频和视频
+  - ffmpeg
+  - pip:
+    # 音频处理
+    - librosa>=0.9.0
+    - soundfile>=0.10.0
+    - sounddevice>=0.4.0
+    - pyaudio>=0.2.11
+    - pydub
+    # TTS引擎
+    - piper-tts>=1.2.0
+    # NLP（可选）
+    - nltk
+    - wordfreq>=3.0.0
+    # 其他工具
+    - jiwer

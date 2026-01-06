@@ -6,7 +6,7 @@ import numpy as np
 import librosa
 import logging
 from typing import List, Tuple, Optional
-from config import AUDIO_CONFIG, STRESS_CONFIG
+from .config import AUDIO_CONFIG, STRESS_CONFIG
 
 logger = logging.getLogger(__name__)
 

@@ -5,12 +5,12 @@
 import logging
 import os
 from typing import Optional, Dict
-from audio_analyzer import AudioAnalyzer
-from delivery_scorer import DeliveryScorer
-from language_scorer import LanguageScorer
-from score_calculator import ScoreCalculator
-from feedback_generator import FeedbackGenerator
-from config import LOG_CONFIG
+from .audio_analyzer import AudioAnalyzer
+from .delivery_scorer import DeliveryScorer
+from .language_scorer import LanguageScorer
+from .score_calculator import ScoreCalculator
+from .feedback_generator import FeedbackGenerator
+from .config import LOG_CONFIG
 
 # 配置日志
 logging.basicConfig(

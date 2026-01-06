@@ -23,9 +23,9 @@ try:
 except ImportError:
     ONNX_AVAILABLE = False
 
-from config import MODEL_CONFIG, AUDIO_CONFIG, TTS_CONFIG, PERFORMANCE_CONFIG
-from text_processor import TextProcessor
-from audio_player import AudioPlayer
+from .config import MODEL_CONFIG, AUDIO_CONFIG, TTS_CONFIG, PERFORMANCE_CONFIG
+from .text_processor import TextProcessor
+from .audio_player import AudioPlayer
 
 logger = logging.getLogger(__name__)
 

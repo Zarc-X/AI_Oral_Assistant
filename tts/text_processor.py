@@ -4,7 +4,7 @@
 """
 import re
 from typing import List, Generator
-from config import TTS_CONFIG
+from .config import TTS_CONFIG
 
 
 class TextProcessor:

@@ -21,7 +21,7 @@ try:
 except ImportError:
     PYAUDIO_AVAILABLE = False
 
-from config import AUDIO_CONFIG, PERFORMANCE_CONFIG
+from .config import AUDIO_CONFIG, PERFORMANCE_CONFIG
 
 logger = logging.getLogger(__name__)
 

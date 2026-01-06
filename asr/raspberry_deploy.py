@@ -10,9 +10,9 @@ import threading
 import queue
 import logging
 import os
-from models.beamformer import Beamformer
-from models.denoiser import Denoiser
-from config import Config
+from .models.beamformer import Beamformer
+from .models.denoiser import Denoiser
+from .config import Config
 import warnings
 warnings.filterwarnings("ignore")
 

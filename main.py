@@ -10,30 +10,15 @@ import random
 import logging
 from pathlib import Path
 
-# 添加各模块路径
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "tts"))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "asr"))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "scoring"))
+# 添加项目根目录到路径（只添加一次，避免模块冲突）
+project_root = os.path.dirname(os.path.abspath(__file__))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 
-# 导入各模块
-try:
-    from tts.tts_module import TextToSpeech
-except ImportError:
-    # 如果导入失败，尝试相对路径
-    sys.path.insert(0, os.path.join(os.path.dirname(__file__), "tts"))
-    from tts_module import TextToSpeech
-
-try:
-    from asr.raspberry_deploy import RaspberryPiAudioProcessor
-except ImportError:
-    sys.path.insert(0, os.path.join(os.path.dirname(__file__), "asr"))
-    from raspberry_deploy import RaspberryPiAudioProcessor
-
-try:
-    from scoring.speech_rater import SpeechRater, ScoreResult
-except ImportError:
-    sys.path.insert(0, os.path.join(os.path.dirname(__file__), "scoring"))
-    from speech_rater import SpeechRater, ScoreResult
+# 导入各模块（使用包导入）
+from tts.tts_module import TextToSpeech
+from asr.raspberry_deploy import RaspberryPiAudioProcessor
+from scoring.speech_rater import SpeechRater, ScoreResult
 
 # 配置日志
 logging.basicConfig(

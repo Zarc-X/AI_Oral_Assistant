@@ -5,8 +5,8 @@
 import numpy as np
 import logging
 from typing import Dict, Optional
-from audio_analyzer import AudioAnalyzer
-from config import DELIVERY_WEIGHTS, TEXT_CONFIG
+from .audio_analyzer import AudioAnalyzer
+from .config import DELIVERY_WEIGHTS, TEXT_CONFIG
 
 logger = logging.getLogger(__name__)
 

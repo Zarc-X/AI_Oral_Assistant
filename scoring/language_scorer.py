@@ -5,7 +5,7 @@
 import numpy as np
 import logging
 from typing import Dict, List, Optional
-from config import LANGUAGE_WEIGHTS, TEXT_CONFIG
+from .config import LANGUAGE_WEIGHTS, TEXT_CONFIG
 
 logger = logging.getLogger(__name__)
 

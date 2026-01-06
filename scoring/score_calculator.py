@@ -4,7 +4,7 @@
 """
 import logging
 from typing import Dict
-from config import SCORE_CONFIG
+from .config import SCORE_CONFIG
 
 logger = logging.getLogger(__name__)
 
