@@ -89,11 +89,17 @@ class RaspberryPiAudioProcessor:
             设备索引，如果未找到返回None（使用默认设备）
         """
         # 首先尝试查找支持配置通道数的设备
-        for i in range(self.p.get_device_count()):
-            dev_info = self.p.get_device_info_by_index(i)
-            if dev_info['maxInputChannels'] >= self.channels:
-                logger.info(f"找到支持 {self.channels} 通道的设备: {dev_info['name']}")
-                return i
+        # for i in range(self.p.get_device_count()):
+        #     dev_info = self.p.get_device_info_by_index(i)
+        #     if dev_info['maxInputChannels'] >= self.channels:
+        #         logger.info(f"找到支持 {self.channels} 通道的设备: {dev_info['name']}")
+        #         return i
+        
+        # 强制指定设备索引 (根据用户测试 card 4 对应 pyAudio 下的 index 1)
+        target_index = 1
+        dev_info = self.p.get_device_info_by_index(target_index)
+        logger.info(f"[Manual Override] 强制使用设备索引 {target_index}: {dev_info['name']}")
+        return target_index
         
         # 如果没找到，使用默认设备
         default_device = self.p.get_default_input_device_info()
@@ -102,20 +108,37 @@ class RaspberryPiAudioProcessor:
     
     def record_callback(self, in_data, frame_count, time_info, status):
         """录音回调函数"""
+        if status:
+            logger.warning(f"录音回调状态异常: {status}")
+            
         if self.is_recording:
             # 将数据放入队列
             data = np.frombuffer(in_data, dtype=np.int16)
             
-            # 根据通道数处理数据
-            if self.channels == 1:
-                # 单通道：转换为(1, samples)格式，保持一致性
-                data = data.reshape(1, -1)
-            else:
-                # 多通道：重新整形为(channels, samples)
-                data = data.reshape(-1, self.channels).T
+            # --- 强制简化逻辑：不管配置如何，一律转为一维数组放入队列 ---
+            # 因为我们在后面 process_audio 里也是直接当做单通道处理的
+            # 这样可以避免 reshape 时的维度错误
+            if data.ndim > 1:
+                data = data.flatten()
             
-            if not self.audio_buffer.full():
-                self.audio_buffer.put(data)
+            # 由于使用的是无限队列，这里总是放入
+            self.audio_buffer.put(data)
+            
+            # 兼容旧逻辑的注释（以防需要回退）
+            # if self.channels == 1:
+            #     # 单通道：转换为(1, samples)格式，保持一致性
+            #     data = data.reshape(1, -1)
+            # else:
+            #     try:
+            #         # 多通道：重新整形为(channels, samples)
+            #         # 注意：如果数据长度不匹配，这里可能会抛出异常
+            #         data = data.reshape(-1, self.channels).T
+            #     except ValueError:
+            #         logger.error(f"数据长度错误: {len(data)}, 期望: {frame_count}x{self.channels}")
+            #         return (None, pyaudio.paContinue)
+            # 
+            # # 由于使用的是无限队列，这里总是放入
+            # self.audio_buffer.put(data)
         
         return (None, pyaudio.paContinue)
     
@@ -190,6 +213,7 @@ class RaspberryPiAudioProcessor:
             self.channels = actual_channels
         
         # 自动检测并适配采样率
+        # 恢复自动检测逻辑，以防止设备不支持 16000Hz 导致崩溃
         actual_sample_rate = self._get_supported_sample_rate(device_index)
         if actual_sample_rate != self.sample_rate:
             logger.info(f"采样率从 {self.sample_rate} Hz 调整为 {actual_sample_rate} Hz")
@@ -200,7 +224,8 @@ class RaspberryPiAudioProcessor:
             # 打开音频流
             stream = self.p.open(
                 format=self.format,
-                channels=self.channels,
+                # 强制单通道
+                channels=1, 
                 rate=self.sample_rate,
                 input=True,
                 frames_per_buffer=self.chunk_size,
@@ -276,42 +301,78 @@ class RaspberryPiAudioProcessor:
         output_buffer = []
         total_chunks = len(raw_buffer)
         
+        logger.info(f"开始后期处理，共 {total_chunks} 帧...")
+
         for i, chunk in enumerate(raw_buffer):
             try:
                 # 1. 波束形成（如果只有1通道，跳过波束形成）
-                if self.channels == 1:
+                # if self.channels == 1:
                     # 单通道：直接使用，不需要波束形成
-                    enhanced = chunk[0]  # 提取单通道数据
-                else:
-                    # 多通道：执行波束形成
-                    enhanced = self.beamformer.delay_and_sum(chunk)
+                    # 确保是 1D array
+                #     if chunk.ndim > 1:
+                #         enhanced = chunk.flatten()
+                #     else:
+                #         enhanced = chunk
+                # else:
+                #     # 多通道：执行波束形成
+                #     enhanced = self.beamformer.delay_and_sum(chunk)
                 
-                # 2. 确保传入去噪的为浮点数（librosa/torch要求浮点输入），并归一化到 [-1, 1]
-                if not isinstance(enhanced, np.ndarray):
-                    enhanced = np.array(enhanced)
+                # # 2. 确保传入去噪的为浮点数，并归一化到 [-1, 1]
+                # if not isinstance(enhanced, np.ndarray):
+                #     enhanced = np.array(enhanced)
 
-                # 转为 float32
-                if np.issubdtype(enhanced.dtype, np.integer):
-                    try:
-                        max_val = np.iinfo(enhanced.dtype).max
-                    except Exception:
-                        max_val = 32767
-                    enhanced = enhanced.astype(np.float32) / float(max_val)
-                else:
-                    enhanced = enhanced.astype(np.float32)
+                # # 转为 float32 并归一化
+                # # 注意：beamformer 输出可能是 float 但幅度仍然是 int16 的范围
+                # if np.issubdtype(enhanced.dtype, np.integer):
+                #     max_val = np.iinfo(enhanced.dtype).max
+                #     enhanced_float = enhanced.astype(np.float32) / float(max_val)
+                # else:
+                #     enhanced_float = enhanced.astype(np.float32)
+                #     # 检查是否需要归一化
+                #     if np.max(np.abs(enhanced_float)) > 1.1:
+                #          enhanced_float /= 32768.0
 
-                # 3. 去噪
-                final = self.denoiser.denoise(enhanced, self.sample_rate)
+                # # 3. 去噪
+                # final = self.denoiser.denoise(enhanced_float, self.sample_rate)
+
+                # --- 临时修改：旁路所有增强算法，直接通过 ---
                 
+                if np.issubdtype(chunk.dtype, np.integer):
+                    enhanced_float = chunk.astype(np.float32) / 32768.0
+                else:
+                    enhanced_float = chunk.astype(np.float32)
+
+                # 确保是1D array
+                if enhanced_float.ndim > 1:
+                    enhanced_float = enhanced_float[:, 0]
+                
+                final = np.clip(enhanced_float, -1.0, 1.0)
+                # --- 修改结束 ---
+                
+                # 强制长度对齐 (修复可能的丢帧/短缺问题)
+                target_len = len(enhanced_float)
+                if len(final) != target_len:
+                    if len(final) > target_len:
+                        final = final[:target_len]
+                    else:
+                        final = np.pad(final, (0, target_len - len(final)))
+
                 # 保存结果
                 output_buffer.append(final)
                 
-                # 简单的进度日志
-                if (i + 1) % 50 == 0:
-                    logger.info(f"正在处理: {i + 1}/{total_chunks}")
-                
             except Exception as e:
-                logger.error(f"处理音频时出错: {e}")
+                logger.error(f"处理音频时出错: {e}，将使用原始内容回退")
+                # 出错时的回退逻辑：保持时间同步！
+                # 尝试直接使用原始数据（取第一通道）并归一化
+                try:
+                    fallback = chunk if chunk.ndim == 1 else chunk[:, 0]
+                    fallback = fallback.astype(np.float32)
+                    if np.max(np.abs(fallback)) > 1.1:
+                        fallback /= 32768.0
+                    output_buffer.append(fallback)
+                except:
+                    # 最坏情况：插入静音，保证时长不丢失
+                    output_buffer.append(np.zeros(self.chunk_size, dtype=np.float32))
                 continue
         
         # 保存处理后的音频
@@ -326,25 +387,42 @@ class RaspberryPiAudioProcessor:
     def save_audio(self, audio, filename):
         """
         保存音频文件
+        如果当前采样率不等于目标采样率(16000)，则进行重采样
         
         Args:
-            audio: 音频数据（numpy数组）
+            audio: 音频数据（numpy float32 数组）
             filename: 输出文件名
         """
         try:
+            target_rate = Config.SAMPLE_RATE
+            
+            # 检查是否需要重采样
+            if self.sample_rate != target_rate:
+                logger.info(f"正在重采样: {self.sample_rate} Hz -> {target_rate} Hz")
+                
+                # 计算目标长度
+                duration = len(audio) / self.sample_rate
+                target_length = int(duration * target_rate)
+                
+                # 简单线性插值重采样 (性能较好，质量尚可)
+                x_old = np.linspace(0, duration, len(audio))
+                x_new = np.linspace(0, duration, target_length)
+                audio = np.interp(x_new, x_old, audio)
+                
             # 确保目录存在
             os.makedirs(os.path.dirname(filename) if os.path.dirname(filename) else '.', exist_ok=True)
             
             # 转换为16位整数
+            # 这里的 audio 已经是 float32 [-1, 1]
             audio_int16 = (audio * 32767).astype(np.int16)
             
             with wave.open(filename, 'wb') as wf:
                 wf.setnchannels(1)  # 单通道输出
                 wf.setsampwidth(2)  # 2字节 = 16位
-                wf.setframerate(self.sample_rate)
+                wf.setframerate(target_rate) # 始终保存为目标采样率(16000)
                 wf.writeframes(audio_int16.tobytes())
             
-            logger.info(f"音频已保存: {filename}")
+            logger.info(f"音频已保存: {filename} (Sample Rate: {target_rate})")
         except Exception as e:
             logger.error(f"保存音频失败: {e}")
             raise

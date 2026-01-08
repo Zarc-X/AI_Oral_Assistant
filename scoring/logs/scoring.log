@@ -1,0 +1,655 @@
+2026-01-08 18:43:18,798 - scoring.speech_rater - INFO - 初始化语音评分器...
+2026-01-08 18:43:18,799 - scoring.speech_rater - INFO - 语音评分器初始化完成
+2026-01-08 18:45:07,105 - scoring.speech_rater - INFO - 开始评分: 音频=raspberry_output.wav, 文本长度=109
+2026-01-08 18:45:07,105 - scoring.speech_rater - INFO - 调用讯飞评分, 文本: Do you agree or disa...
+2026-01-08 18:47:14,944 - scoring.xunfei_rater - INFO - WebSocket Closed
+2026-01-08 18:47:15,423 - scoring.xunfei_rater - INFO - 音频发送完毕
+2026-01-08 18:47:29,323 - scoring.speech_rater - INFO - 融合评分: 本地=1.19, 讯飞=0.00, 最终=0.48
+2026-01-08 18:47:29,324 - scoring.speech_rater - INFO - 评分完成: 总分=0.48, 发音=2.21, 内容=0.17
+2026-01-08 18:50:34,677 - scoring.speech_rater - INFO - 初始化语音评分器...
+2026-01-08 18:50:34,678 - scoring.speech_rater - INFO - 语音评分器初始化完成
+2026-01-08 18:52:12,900 - scoring.speech_rater - INFO - 开始评分: 音频=raspberry_output.wav, 文本长度=109
+2026-01-08 18:52:12,900 - scoring.speech_rater - INFO - 调用讯飞评分, 文本: Do you agree or disa...
+2026-01-08 18:54:20,625 - scoring.xunfei_rater - INFO - WebSocket Closed
+2026-01-08 18:54:21,196 - scoring.xunfei_rater - INFO - 音频发送完毕
+2026-01-08 18:54:32,384 - scoring.speech_rater - INFO - 融合评分: 本地=1.08, 讯飞=0.00, 最终=0.43
+2026-01-08 18:54:32,386 - scoring.speech_rater - INFO - 评分完成: 总分=0.43, 发音=2.00, 内容=0.17
+2026-01-08 18:59:13,332 - scoring.speech_rater - INFO - 初始化语音评分器...
+2026-01-08 18:59:13,333 - scoring.speech_rater - INFO - 语音评分器初始化完成
+2026-01-08 19:01:09,059 - scoring.speech_rater - INFO - 开始评分: 音频=raspberry_output.wav, 文本长度=109
+2026-01-08 19:01:09,059 - scoring.speech_rater - INFO - 调用讯飞评分, 文本: Do you agree or disa...
+2026-01-08 19:03:16,722 - scoring.xunfei_rater - INFO - 讯飞评分原始XML: <?xml version="1.0" encoding="UTF-8"?>
+  <xml_result>
+      <topic lan="en" type="study" version="7.0.0.1020">
+          <rec_paper>
+              <rec_paper beg_pos="376" content="rec_paper" end_pos="11594" except_info="28673" is_rejected="true" reject_type="1092" total_score="0.000000">
+                  <sentence content="" index="0"></sentence>
+                  <sentence content="" index="1"></sentence>
+                  <sentence content="" index="2"></sentence>
+                  <sentence content="" index="3"></sentence>
+                  <sentence content="" index="4"></sentence>
+                  <sentence content="" index="5"></sentence>
+                  <sentence content="" index="6"></sentence>
+                  <sentence content="" index="7"></sentence>
+                  <sentence content="" index="8"></sentence>
+                  <sentence content="" index="9"></sentence>
+                  <sentence content="" index="10"></sentence>
+                  <sentence content="" index="11"></sentence>
+              </rec_paper>
+          </rec_paper>
+      </topic>
+  </xml_result>
+2026-01-08 19:03:16,806 - scoring.xunfei_rater - INFO - WebSocket Closed
+2026-01-08 19:03:17,161 - scoring.xunfei_rater - INFO - 音频发送完毕
+2026-01-08 19:03:37,670 - scoring.speech_rater - INFO - 融合评分: 本地=0.94, 讯飞=0.00, 最终=0.38
+2026-01-08 19:03:37,672 - scoring.speech_rater - INFO - 评分完成: 总分=0.38, 发音=1.71, 内容=0.17
+2026-01-08 22:25:06,958 - scoring.speech_rater - INFO - 初始化语音评分器...
+2026-01-08 22:25:06,959 - scoring.speech_rater - INFO - 语音评分器初始化完成
+2026-01-08 22:28:01,208 - scoring.speech_rater - INFO - 初始化语音评分器...
+2026-01-08 22:28:01,208 - scoring.speech_rater - INFO - 语音评分器初始化完成
+2026-01-08 22:30:11,454 - scoring.speech_rater - INFO - 开始评分: 音频=raspberry_output.wav, 文本长度=109
+2026-01-08 22:30:11,455 - scoring.speech_rater - INFO - 调用讯飞评分, 文本: Do you agree or disa...
+2026-01-08 22:32:19,703 - scoring.xunfei_rater - INFO - 讯飞评分原始XML: <?xml version="1.0" encoding="UTF-8"?>
+  <xml_result>
+      <topic lan="en" type="study" version="7.0.0.1020">
+          <rec_paper>
+              <rec_paper accuracy_score="0.000000" beg_pos="191" content="rec_paper" end_pos="11764" except_info="28676" is_rejected="true" phone_score="5.000000" reject_type="64" speeking_speed="159.292038" total_score="0.000000">
+                  <sentence content="" index="0"></sentence>
+                  <sentence content="" index="1"></sentence>
+                  <sentence content="a " index="2">
+                      <word beg_pos="3334" content="a" end_pos="3369"></word>
+                  </sentence>
+                  <sentence content="" index="3"></sentence>
+                  <sentence content="" index="4"></sentence>
+                  <sentence content="" index="5"></sentence>
+                  <sentence content="" index="6"></sentence>
+                  <sentence content="the world " index="7">
+                      <word beg_pos="8905" content="the" end_pos="8945"></word>
+                      <word beg_pos="8945" content="world" end_pos="8983"></word>
+                  </sentence>
+                  <sentence content="" index="8"></sentence>
+                  <sentence content="" index="9"></sentence>
+                  <sentence content="" index="10"></sentence>
+              </rec_paper>
+          </rec_paper>
+      </topic>
+  </xml_result>
+2026-01-08 22:32:19,759 - scoring.xunfei_rater - ERROR - 【严重错误】讯飞评分被拒绝! Reject Type: 64, Except Info: 28676
+2026-01-08 22:32:19,819 - scoring.xunfei_rater - INFO - WebSocket Closed
+2026-01-08 22:32:19,820 - scoring.xunfei_rater - ERROR - 讯飞评分出错: Audio Rejected: No valid speech detected (Error 28676)
+2026-01-08 22:32:20,368 - scoring.xunfei_rater - INFO - 音频发送完毕
+2026-01-08 22:32:42,538 - scoring.speech_rater - INFO - 评分完成: 总分=0.92, 发音=1.67, 内容=0.17
+2026-01-08 22:50:45,990 - scoring.speech_rater - INFO - 初始化语音评分器...
+2026-01-08 22:50:45,991 - scoring.speech_rater - INFO - 语音评分器初始化完成
+2026-01-08 22:53:34,653 - scoring.speech_rater - INFO - 开始评分: 音频=raspberry_output.wav, 文本长度=109
+2026-01-08 22:53:34,654 - scoring.speech_rater - INFO - 调用讯飞评分, 文本: Do you agree or disa...
+2026-01-08 22:53:35,889 - scoring.xunfei_rater - INFO - 音频发送完毕
+2026-01-08 22:53:37,495 - scoring.xunfei_rater - ERROR - Xunfei Error: ise000ec302@dx19b9e1945257612812 seeRec.SRecWrite error:iSEInputFinish error Code: 48205
+2026-01-08 22:53:37,519 - scoring.xunfei_rater - INFO - WebSocket Closed
+2026-01-08 22:53:37,520 - scoring.xunfei_rater - ERROR - 讯飞评分出错: ise000ec302@dx19b9e1945257612812 seeRec.SRecWrite error:iSEInputFinish error
+2026-01-08 22:53:58,477 - scoring.speech_rater - INFO - 评分完成: 总分=1.58, 发音=2.58, 内容=0.58
+2026-01-08 22:57:18,578 - scoring.speech_rater - INFO - 初始化语音评分器...
+2026-01-08 22:57:18,579 - scoring.speech_rater - INFO - 语音评分器初始化完成
+2026-01-08 23:01:43,402 - scoring.speech_rater - INFO - 初始化语音评分器...
+2026-01-08 23:01:43,403 - scoring.speech_rater - INFO - 语音评分器初始化完成
+2026-01-08 23:04:36,230 - scoring.speech_rater - INFO - 开始评分: 音频=raspberry_output.wav, 文本长度=109
+2026-01-08 23:04:36,230 - scoring.speech_rater - INFO - 调用讯飞评分, 文本: Do you agree or disa...
+2026-01-08 23:05:23,314 - scoring.xunfei_rater - INFO - 讯飞评分原始XML: <?xml version="1.0" encoding="UTF-8"?>
+  <xml_result>
+      <topic lan="en" type="study" version="7.0.0.1020">
+          <rec_paper>
+              <rec_paper accuracy_score="0.000000" beg_pos="200" content="rec_paper" end_pos="4489" except_info="28676" is_rejected="true" phone_score="5.000000" reject_type="64" speeking_speed="122.632103" total_score="0.000000">
+                  <sentence content="i don&apos;t agree that " index="0">
+                      <word beg_pos="219" content="i" end_pos="263"></word>
+                      <word beg_pos="263" content="don&apos;t" end_pos="329"></word>
+                      <word beg_pos="329" content="agree" end_pos="381"></word>
+                      <word beg_pos="381" content="that" end_pos="429"></word>
+                  </sentence>
+                  <sentence content="kids should read news a newspaper or tv from an early age first this " index="1">
+                      <word beg_pos="511" content="kids" end_pos="570"></word>
+                      <word beg_pos="570" content="should" end_pos="613"></word>
+                      <word beg_pos="613" content="read" end_pos="649"></word>
+                      <word beg_pos="649" content="news" end_pos="697"></word>
+                      <word beg_pos="697" content="a" end_pos="716"></word>
+                      <word beg_pos="716" content="newspaper" end_pos="777"></word>
+                      <word beg_pos="777" content="or" end_pos="803"></word>
+                      <word beg_pos="803" content="tv" end_pos="859"></word>
+                      <word beg_pos="859" content="from" end_pos="897"></word>
+                      <word beg_pos="897" content="an" end_pos="911"></word>
+                      <word beg_pos="911" content="early" end_pos="935"></word>
+                      <word beg_pos="935" content="age" end_pos="971"></word>
+                      <word beg_pos="971" content="first" end_pos="1117"></word>
+                      <word beg_pos="1117" content="this" end_pos="1320"></word>
+                  </sentence>
+                  <sentence content="the kids are too young to understand the contains of these news they just read the words " index="2">
+                      <word beg_pos="1359" content="the" end_pos="1383"></word>
+                      <word beg_pos="1383" content="kids" end_pos="1415"></word>
+                      <word beg_pos="1415" content="are" end_pos="1433"></word>
+                      <word beg_pos="1433" content="too" end_pos="1473"></word>
+                      <word beg_pos="1473" content="young" end_pos="1503"></word>
+                      <word beg_pos="1503" content="to" end_pos="1533"></word>
+                      <word beg_pos="1533" content="understand" end_pos="1607"></word>
+                      <word beg_pos="1607" content="the" end_pos="1695"></word>
+                      <word beg_pos="1695" content="contains" end_pos="1767"></word>
+                      <word beg_pos="1767" content="of" end_pos="1790"></word>
+                      <word beg_pos="1790" content="these" end_pos="1816"></word>
+                      <word beg_pos="1816" content="news" end_pos="1871"></word>
+                      <word beg_pos="1871" content="they" end_pos="2027"></word>
+                      <word beg_pos="2027" content="just" end_pos="2059"></word>
+                      <word beg_pos="2059" content="read" end_pos="2103"></word>
+                      <word beg_pos="2103" content="the" end_pos="2121"></word>
+                      <word beg_pos="2121" content="words" end_pos="2186"></word>
+                  </sentence>
+                  <sentence content="but it can&apos;t help them in any ways " index="3">
+                      <word beg_pos="2216" content="but" end_pos="2249"></word>
+                      <word beg_pos="2249" content="it" end_pos="2281"></word>
+                      <word beg_pos="2281" content="can&apos;t" end_pos="2337"></word>
+                      <word beg_pos="2337" content="help" end_pos="2417"></word>
+                      <word beg_pos="2417" content="them" end_pos="2453"></word>
+                      <word beg_pos="2453" content="in" end_pos="2531"></word>
+                      <word beg_pos="2531" content="any" end_pos="2561"></word>
+                      <word beg_pos="2561" content="ways" end_pos="2621"></word>
+                  </sentence>
+                  <sentence content="it is just if if they want to new if you want to develop them make library why not " index="4">
+                      <word beg_pos="2685" content="it" end_pos="2711"></word>
+                      <word beg_pos="2711" content="is" end_pos="2729"></word>
+                      <word beg_pos="2729" content="just" end_pos="2783"></word>
+                      <word beg_pos="2783" content="if" end_pos="2979"></word>
+                      <word beg_pos="2979" content="if" end_pos="3005"></word>
+                      <word beg_pos="3005" content="they" end_pos="3023"></word>
+                      <word beg_pos="3023" content="want" end_pos="3050"></word>
+                      <word beg_pos="3050" content="to" end_pos="3065"></word>
+                      <word beg_pos="3065" content="new" end_pos="3099"></word>
+                      <word beg_pos="3099" content="if" end_pos="3209"></word>
+                      <word beg_pos="3209" content="you" end_pos="3224"></word>
+                      <word beg_pos="3224" content="want" end_pos="3251"></word>
+                      <word beg_pos="3251" content="to" end_pos="3263"></word>
+                      <word beg_pos="3263" content="develop" end_pos="3309"></word>
+                      <word beg_pos="3309" content="them" end_pos="3347"></word>
+                      <word beg_pos="3347" content="make" end_pos="3372"></word>
+                      <word beg_pos="3372" content="library" end_pos="3429"></word>
+                      <word beg_pos="3429" content="why" end_pos="3469"></word>
+                      <word beg_pos="3469" content="not" end_pos="3519"></word>
+                  </sentence>
+                  <sentence content="to let them read the more simple books second i think it is a better choice for them to contact " index="5">
+                      <word beg_pos="3559" content="to" end_pos="3585"></word>
+                      <word beg_pos="3585" content="let" end_pos="3625"></word>
+                      <word beg_pos="3625" content="them" end_pos="3661"></word>
+                      <word beg_pos="3661" content="read" end_pos="3745"></word>
+                      <word beg_pos="3745" content="the" end_pos="3787"></word>
+                      <word beg_pos="3787" content="more" end_pos="3853"></word>
+                      <word beg_pos="3853" content="simple" end_pos="3927"></word>
+                      <word beg_pos="3927" content="books" end_pos="3971"></word>
+                      <word beg_pos="3971" content="second" end_pos="4079"></word>
+                      <word beg_pos="4079" content="i" end_pos="4133"></word>
+                      <word beg_pos="4133" content="think" end_pos="4155"></word>
+                      <word beg_pos="4155" content="it" end_pos="4173"></word>
+                      <word beg_pos="4173" content="is" end_pos="4199"></word>
+                      <word beg_pos="4199" content="a" end_pos="4219"></word>
+                      <word beg_pos="4219" content="better" end_pos="4281"></word>
+                      <word beg_pos="4281" content="choice" end_pos="4337"></word>
+                      <word beg_pos="4337" content="for" end_pos="4362"></word>
+                      <word beg_pos="4362" content="them" end_pos="4403"></word>
+                      <word beg_pos="4403" content="to" end_pos="4443"></word>
+                      <word beg_pos="4443" content="contact" end_pos="4486"></word>
+                  </sentence>
+              </rec_paper>
+          </rec_paper>
+      </topic>
+  </xml_result>
+2026-01-08 23:05:23,343 - scoring.xunfei_rater - ERROR - 【严重错误】讯飞评分被拒绝! Reject Type: 64, Except Info: 28676
+2026-01-08 23:05:23,344 - scoring.xunfei_rater - ERROR - 错误码 28676 说明：语音与文本/题目不匹配或匹配度过低。原因可能是：1. 录音不清晰/噪音过大 2. 声音太小导致只识别到只言片语 3. 说的是中文而非英文
+2026-01-08 23:05:23,411 - scoring.xunfei_rater - INFO - WebSocket Closed
+2026-01-08 23:05:23,412 - scoring.xunfei_rater - ERROR - 讯飞评分出错: Audio Rejected: No valid speech detected (Error 28676)
+2026-01-08 23:05:23,641 - scoring.xunfei_rater - INFO - 音频发送完毕
+2026-01-08 23:05:50,790 - scoring.speech_rater - INFO - 评分完成: 总分=0.98, 发音=1.79, 内容=0.17
+2026-01-08 23:12:09,314 - scoring.speech_rater - INFO - 初始化语音评分器...
+2026-01-08 23:12:09,315 - scoring.speech_rater - INFO - 语音评分器初始化完成
+2026-01-08 23:15:04,612 - scoring.speech_rater - INFO - 初始化语音评分器...
+2026-01-08 23:15:04,613 - scoring.speech_rater - INFO - 语音评分器初始化完成
+2026-01-08 23:17:01,628 - scoring.speech_rater - INFO - 开始评分: 音频=raspberry_output.wav, 文本长度=109
+2026-01-08 23:17:01,629 - scoring.speech_rater - INFO - 调用讯飞评分, 文本: Do you agree or disa...
+2026-01-08 23:17:06,884 - scoring.xunfei_rater - INFO - 已跳过 WAV 文件头 (44 bytes)
+2026-01-08 23:17:06,885 - scoring.xunfei_rater - INFO - 发送给讯飞的评测文本(Topic): [topic]
+1. Do you agree or disagree with the following statement? Kids should be encouraged to read news on newspaper or TV from an early age.
+2026-01-08 23:17:53,201 - scoring.xunfei_rater - INFO - 讯飞评分原始XML: <?xml version="1.0" encoding="UTF-8"?>
+  <xml_result>
+      <topic lan="en" type="study" version="7.0.0.1020">
+          <rec_paper>
+              <rec_paper accuracy_score="0.000000" beg_pos="12" content="rec_paper" end_pos="4037" except_info="28676" is_rejected="true" phone_score="5.000000" reject_type="64" speeking_speed="127.659576" total_score="0.000000">
+                  <sentence content="i don&apos;t agree that kids should be encouraged to read news on newspaper or tv " index="0">
+                      <word beg_pos="107" content="i" end_pos="135"></word>
+                      <word beg_pos="135" content="don&apos;t" end_pos="171"></word>
+                      <word beg_pos="171" content="agree" end_pos="209"></word>
+                      <word beg_pos="209" content="that" end_pos="247"></word>
+                      <word beg_pos="247" content="kids" end_pos="295"></word>
+                      <word beg_pos="295" content="should" end_pos="330"></word>
+                      <word beg_pos="330" content="be" end_pos="349"></word>
+                      <word beg_pos="349" content="encouraged" end_pos="424"></word>
+                      <word beg_pos="424" content="to" end_pos="464"></word>
+                      <word beg_pos="464" content="read" end_pos="507"></word>
+                      <word beg_pos="507" content="news" end_pos="555"></word>
+                      <word beg_pos="555" content="on" end_pos="569"></word>
+                      <word beg_pos="569" content="newspaper" end_pos="629"></word>
+                      <word beg_pos="629" content="or" end_pos="653"></word>
+                      <word beg_pos="653" content="tv" end_pos="697"></word>
+                  </sentence>
+                  <sentence content="first " index="1">
+                      <word beg_pos="783" content="first" end_pos="841"></word>
+                  </sentence>
+                  <sentence content="it is too difficult for young children to understand the companies " index="2">
+                      <word beg_pos="909" content="it" end_pos="935"></word>
+                      <word beg_pos="935" content="is" end_pos="959"></word>
+                      <word beg_pos="959" content="too" end_pos="1019"></word>
+                      <word beg_pos="1019" content="difficult" end_pos="1089"></word>
+                      <word beg_pos="1089" content="for" end_pos="1144"></word>
+                      <word beg_pos="1144" content="young" end_pos="1175"></word>
+                      <word beg_pos="1175" content="children" end_pos="1233"></word>
+                      <word beg_pos="1233" content="to" end_pos="1287"></word>
+                      <word beg_pos="1287" content="understand" end_pos="1367"></word>
+                      <word beg_pos="1367" content="the" end_pos="1381"></word>
+                      <word beg_pos="1381" content="companies" end_pos="1453"></word>
+                  </sentence>
+                  <sentence content="what they can do is just recognize some words but they can&apos;t understand the whole particular the hope " index="3">
+                      <word beg_pos="1559" content="what" end_pos="1596"></word>
+                      <word beg_pos="1596" content="they" end_pos="1610"></word>
+                      <word beg_pos="1610" content="can" end_pos="1632"></word>
+                      <word beg_pos="1632" content="do" end_pos="1661"></word>
+                      <word beg_pos="1661" content="is" end_pos="1675"></word>
+                      <word beg_pos="1675" content="just" end_pos="1717"></word>
+                      <word beg_pos="1717" content="recognize" end_pos="1812"></word>
+                      <word beg_pos="1812" content="some" end_pos="1839"></word>
+                      <word beg_pos="1839" content="words" end_pos="1891"></word>
+                      <word beg_pos="1891" content="but" end_pos="1920"></word>
+                      <word beg_pos="1920" content="they" end_pos="1937"></word>
+                      <word beg_pos="1937" content="can&apos;t" end_pos="1989"></word>
+                      <word beg_pos="1989" content="understand" end_pos="2085"></word>
+                      <word beg_pos="2085" content="the" end_pos="2153"></word>
+                      <word beg_pos="2153" content="whole" end_pos="2219"></word>
+                      <word beg_pos="2219" content="particular" end_pos="2316"></word>
+                      <word beg_pos="2316" content="the" end_pos="2354"></word>
+                      <word beg_pos="2354" content="hope" end_pos="2391"></word>
+                  </sentence>
+                  <sentence content="article " index="4">
+                      <word beg_pos="2406" content="article" end_pos="2473"></word>
+                  </sentence>
+                  <sentence content="can&apos;t second if we have there time is the better choice for them to " index="5">
+                      <word beg_pos="2567" content="can&apos;t" end_pos="2619"></word>
+                      <word beg_pos="2619" content="second" end_pos="2759"></word>
+                      <word beg_pos="2759" content="if" end_pos="2836"></word>
+                      <word beg_pos="2836" content="we" end_pos="2851"></word>
+                      <word beg_pos="2851" content="have" end_pos="2875"></word>
+                      <word beg_pos="2875" content="there" end_pos="2899"></word>
+                      <word beg_pos="2899" content="time" end_pos="2963"></word>
+                      <word beg_pos="2963" content="is" end_pos="3008"></word>
+                      <word beg_pos="3008" content="the" end_pos="3021"></word>
+                      <word beg_pos="3021" content="better" end_pos="3051"></word>
+                      <word beg_pos="3051" content="choice" end_pos="3091"></word>
+                      <word beg_pos="3091" content="for" end_pos="3121"></word>
+                      <word beg_pos="3121" content="them" end_pos="3164"></word>
+                      <word beg_pos="3164" content="to" end_pos="3255"></word>
+                  </sentence>
+                  <sentence content="go outside and contact with the teachers will help them develop a healthier body and " index="6">
+                      <word beg_pos="3275" content="go" end_pos="3313"></word>
+                      <word beg_pos="3313" content="outside" end_pos="3377"></word>
+                      <word beg_pos="3377" content="and" end_pos="3399"></word>
+                      <word beg_pos="3399" content="contact" end_pos="3451"></word>
+                      <word beg_pos="3451" content="with" end_pos="3474"></word>
+                      <word beg_pos="3474" content="the" end_pos="3488"></word>
+                      <word beg_pos="3488" content="teachers" end_pos="3559"></word>
+                      <word beg_pos="3559" content="will" end_pos="3620"></word>
+                      <word beg_pos="3620" content="help" end_pos="3655"></word>
+                      <word beg_pos="3655" content="them" end_pos="3690"></word>
+                      <word beg_pos="3690" content="develop" end_pos="3757"></word>
+                      <word beg_pos="3757" content="a" end_pos="3800"></word>
+                      <word beg_pos="3800" content="healthier" end_pos="3877"></word>
+                      <word beg_pos="3877" content="body" end_pos="3935"></word>
+                      <word beg_pos="3935" content="and" end_pos="4021"></word>
+                  </sentence>
+              </rec_paper>
+          </rec_paper>
+      </topic>
+  </xml_result>
+2026-01-08 23:17:53,229 - scoring.xunfei_rater - ERROR - 【严重错误】讯飞评分被拒绝! Reject Type: 64, Except Info: 28676
+2026-01-08 23:17:53,230 - scoring.xunfei_rater - ERROR - 错误码 28676 说明：语音与文本/题目不匹配或匹配度过低。原因可能是：1. 录音不清晰/噪音过大 2. 声音太小导致只识别到只言片语 3. 说的是中文而非英文
+2026-01-08 23:17:53,284 - scoring.xunfei_rater - INFO - WebSocket Closed
+2026-01-08 23:17:53,285 - scoring.xunfei_rater - ERROR - 讯飞评分出错: Audio Rejected: No valid speech detected (Error 28676)
+2026-01-08 23:17:53,915 - scoring.xunfei_rater - INFO - 音频发送完毕
+2026-01-08 23:18:20,709 - scoring.speech_rater - INFO - 评分完成: 总分=0.92, 发音=1.66, 内容=0.17
+2026-01-08 23:24:11,871 - scoring.speech_rater - INFO - 初始化语音评分器...
+2026-01-08 23:24:11,872 - scoring.speech_rater - INFO - 语音评分器初始化完成
+2026-01-08 23:25:55,950 - scoring.speech_rater - INFO - 开始评分: 音频=raspberry_output.wav, 文本长度=109
+2026-01-08 23:25:55,951 - scoring.speech_rater - INFO - 调用讯飞评分, 文本: Do you agree or disa...
+2026-01-08 23:25:56,150 - scoring.xunfei_rater - INFO - 已跳过 WAV 文件头 (44 bytes)
+2026-01-08 23:25:56,151 - scoring.xunfei_rater - INFO - 发送给讯飞的评测文本(Topic): Do you agree or disagree with the following statement? Restaurants should provide nutritional information about the food items on their menu.
+2026-01-08 23:26:42,754 - scoring.xunfei_rater - INFO - 讯飞评分原始XML: <?xml version="1.0" encoding="UTF-8"?>
+  <xml_result>
+      <read_chapter lan="en" type="study" version="7.0.0.1020">
+          <rec_paper>
+              <read_chapter accuracy_score="4.371057" beg_pos="0" content="Do you agree or disagree with the following statement? Restaurants should provide nutritional information about the food items on their menu." end_pos="4489" except_info="0" fluency_score="5.000000" integrity_score="5.000000" is_rejected="false" reject_type="0" score_pattern="loose" standard_score="4.597616" total_score="4.605052" word_count="21">
+                  <sentence accuracy_score="4.465969" beg_pos="0" content="do you agree or disagree with the following statement" end_pos="705" fluency_score="4.890281" index="0" standard_score="4.536996" total_score="4.607468" word_count="9">
+                      <word beg_pos="370" content="do" dp_message="0" end_pos="390" global_index="0" index="0" property="0" total_score="5.000000">
+                          <syll beg_pos="370" content="d uw" end_pos="390" serr_msg="0" syll_accent="0" syll_score="4.998959">
+                              <phone beg_pos="370" content="d" end_pos="382" gwpp="-0.000401"></phone>
+                              <phone beg_pos="382" content="uw" end_pos="390" gwpp="-0.000015"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="390" content="you" dp_message="0" end_pos="416" global_index="1" index="1" property="0" total_score="5.000000">
+                          <syll beg_pos="390" content="y uw" end_pos="416" serr_msg="0" syll_accent="0" syll_score="4.990541">
+                              <phone beg_pos="390" content="y" end_pos="402" gwpp="-0.000039"></phone>
+                              <phone beg_pos="402" content="uw" end_pos="416" gwpp="-0.003752"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="416" content="agree" dp_message="0" end_pos="471" global_index="2" index="2" property="0" total_score="4.998372">
+                          <syll beg_pos="416" content="ax" end_pos="428" serr_msg="0" syll_accent="0" syll_score="4.927027">
+                              <phone beg_pos="416" content="ax" end_pos="428" gwpp="-0.014702"></phone>
+                          </syll>
+                          <syll beg_pos="428" content="g r iy" end_pos="471" serr_msg="0" syll_accent="1" syll_score="4.945827">
+                              <phone beg_pos="428" content="g" end_pos="438" gwpp="-0.006907"></phone>
+                              <phone beg_pos="438" content="r" end_pos="450" gwpp="-0.000028"></phone>
+                              <phone beg_pos="450" content="iy" end_pos="471" gwpp="-0.025925"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="471" content="sil" end_pos="474"></word>
+                      <word beg_pos="474" content="or" dp_message="0" end_pos="492" global_index="3" index="3" property="0" total_score="4.907790">
+                          <syll beg_pos="474" content="ao" end_pos="492" serr_msg="0" syll_accent="0" syll_score="4.443844">
+                              <phone beg_pos="474" content="ao" end_pos="492" gwpp="-0.117918"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="492" content="disagree" dp_message="0" end_pos="556" global_index="4" index="4" property="0" total_score="4.905080">
+                          <syll beg_pos="492" content="d ih" end_pos="510" serr_msg="0" syll_accent="0" syll_score="4.994445">
+                              <phone beg_pos="492" content="d" end_pos="502" gwpp="-0.000454"></phone>
+                              <phone beg_pos="502" content="ih" end_pos="510" gwpp="-0.001770"></phone>
+                          </syll>
+                          <syll beg_pos="510" content="s ax" end_pos="532" serr_msg="0" syll_accent="0" syll_score="3.298858">
+                              <phone beg_pos="510" content="s" end_pos="524" gwpp="-0.179398"></phone>
+                              <phone beg_pos="524" content="ax" end_pos="532" gwpp="-0.726145"></phone>
+                          </syll>
+                          <syll beg_pos="532" content="g r iy" end_pos="556" serr_msg="0" syll_accent="1" syll_score="4.999083">
+                              <phone beg_pos="532" content="g" end_pos="542" gwpp="-0.000371"></phone>
+                              <phone beg_pos="542" content="r" end_pos="548" gwpp="-0.000035"></phone>
+                              <phone beg_pos="548" content="iy" end_pos="556" gwpp="-0.000145"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="556" content="with" dp_message="0" end_pos="579" global_index="5" index="5" property="0" total_score="4.928880">
+                          <syll beg_pos="556" content="w ih dh" end_pos="579" serr_msg="0" syll_accent="0" syll_score="4.557388">
+                              <phone beg_pos="556" content="w" end_pos="562" gwpp="-0.055368"></phone>
+                              <phone beg_pos="562" content="ih" end_pos="574" gwpp="-0.000593"></phone>
+                              <phone beg_pos="574" content="dh" end_pos="579" gwpp="-0.237130"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="579" content="the" dp_message="0" end_pos="588" global_index="6" index="6" property="0" total_score="4.992645">
+                          <syll beg_pos="579" content="dh ax" end_pos="588" serr_msg="0" syll_accent="0" syll_score="4.821337">
+                              <phone beg_pos="579" content="dh" end_pos="582" gwpp="-0.057908"></phone>
+                              <phone beg_pos="582" content="ax" end_pos="588" gwpp="-0.015319"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="588" content="following" dp_message="0" end_pos="639" global_index="7" index="7" property="0" total_score="4.997204">
+                          <syll beg_pos="588" content="f oo" end_pos="613" serr_msg="0" syll_accent="1" syll_score="4.878321">
+                              <phone beg_pos="588" content="f" end_pos="604" gwpp="-0.000203"></phone>
+                              <phone beg_pos="604" content="oo" end_pos="613" gwpp="-0.049682"></phone>
+                          </syll>
+                          <syll beg_pos="613" content="l ow" end_pos="626" serr_msg="0" syll_accent="0" syll_score="4.988468">
+                              <phone beg_pos="613" content="l" end_pos="618" gwpp="-0.002655"></phone>
+                              <phone beg_pos="618" content="ow" end_pos="626" gwpp="-0.001963"></phone>
+                          </syll>
+                          <syll beg_pos="626" content="ih ng" end_pos="639" serr_msg="0" syll_accent="0" syll_score="4.880115">
+                              <phone beg_pos="626" content="ih" end_pos="634" gwpp="-0.041815"></phone>
+                              <phone beg_pos="634" content="ng" end_pos="639" gwpp="-0.007026"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="639" content="statement" dp_message="0" end_pos="705" global_index="8" index="8" property="0" total_score="4.992716">
+                          <syll beg_pos="639" content="s t ey t" end_pos="670" serr_msg="0" syll_accent="1" syll_score="4.731493">
+                              <phone beg_pos="639" content="s" end_pos="644" gwpp="-0.055939"></phone>
+                              <phone beg_pos="644" content="t" end_pos="654" gwpp="-0.085374"></phone>
+                              <phone beg_pos="654" content="ey" end_pos="664" gwpp="-0.005769"></phone>
+                              <phone beg_pos="664" content="t" end_pos="670" gwpp="-0.075605"></phone>
+                          </syll>
+                          <syll beg_pos="670" content="m ax n t" end_pos="705" serr_msg="0" syll_accent="0" syll_score="4.973166">
+                              <phone beg_pos="670" content="m" end_pos="675" gwpp="-0.000018"></phone>
+                              <phone beg_pos="675" content="ax" end_pos="680" gwpp="-0.000007"></phone>
+                              <phone beg_pos="680" content="n" end_pos="684" gwpp="-0.000275"></phone>
+                              <phone beg_pos="684" content="t" end_pos="705" gwpp="-0.021394"></phone>
+                          </syll>
+                      </word>
+                  </sentence>
+                  <sentence accuracy_score="3.907870" beg_pos="705" content="restaurants should provide nutritional information about the food items on their menu" end_pos="4489" fluency_score="4.663286" index="1" standard_score="4.233887" total_score="4.199698" word_count="12">
+                      <word beg_pos="784" content="restaurants" dp_message="0" end_pos="876" global_index="9" index="0" property="0" total_score="3.445015">
+                          <syll beg_pos="784" content="r eh" end_pos="810" serr_msg="0" syll_accent="1" syll_score="4.989373">
+                              <phone beg_pos="784" content="r" end_pos="802" gwpp="-0.003851"></phone>
+                              <phone beg_pos="802" content="eh" end_pos="810" gwpp="-0.000407"></phone>
+                          </syll>
+                          <syll beg_pos="810" content="s dr oo n ts" end_pos="876" serr_msg="1" syll_accent="0" syll_score="2.471465">
+                              <phone beg_pos="810" content="s" end_pos="824" gwpp="-1.396521"></phone>
+                              <phone beg_pos="824" content="dr" end_pos="834" gwpp="-8.051261"></phone>
+                              <phone beg_pos="834" content="oo" end_pos="844" gwpp="-5.589412"></phone>
+                              <phone beg_pos="844" content="n" end_pos="852" gwpp="-0.000053"></phone>
+                              <phone beg_pos="852" content="ts" end_pos="876" gwpp="-1.104899"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="876" content="sil" end_pos="894"></word>
+                      <word beg_pos="894" content="should" dp_message="0" end_pos="922" global_index="10" index="1" property="0" total_score="4.985612">
+                          <syll beg_pos="894" content="sh uh d" end_pos="922" serr_msg="0" syll_accent="0" syll_score="4.782880">
+                              <phone beg_pos="894" content="sh" end_pos="912" gwpp="-0.001748"></phone>
+                              <phone beg_pos="912" content="uh" end_pos="917" gwpp="-0.001232"></phone>
+                              <phone beg_pos="917" content="d" end_pos="922" gwpp="-0.136157"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="922" content="provide" dp_message="0" end_pos="978" global_index="11" index="2" property="0" total_score="4.745704">
+                          <syll beg_pos="922" content="p r ax" end_pos="947" serr_msg="0" syll_accent="0" syll_score="4.950476">
+                              <phone beg_pos="922" content="p" end_pos="936" gwpp="-0.000395"></phone>
+                              <phone beg_pos="936" content="r" end_pos="944" gwpp="-0.000056"></phone>
+                              <phone beg_pos="944" content="ax" end_pos="947" gwpp="-0.029700"></phone>
+                          </syll>
+                          <syll beg_pos="947" content="v ay d" end_pos="978" serr_msg="0" syll_accent="1" syll_score="3.731921">
+                              <phone beg_pos="947" content="v" end_pos="952" gwpp="-1.650187"></phone>
+                              <phone beg_pos="952" content="ay" end_pos="968" gwpp="-0.000164"></phone>
+                              <phone beg_pos="968" content="d" end_pos="978" gwpp="-0.137611"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="978" content="nutritional" dp_message="0" end_pos="1054" global_index="12" index="3" property="0" total_score="4.919633">
+                          <syll beg_pos="978" content="n y uw" end_pos="1000" serr_msg="0" syll_accent="0" syll_score="4.997113">
+                              <phone beg_pos="978" content="n" end_pos="986" gwpp="-0.001549"></phone>
+                              <phone beg_pos="986" content="y" end_pos="990" gwpp="-0.000113"></phone>
+                              <phone beg_pos="990" content="uw" end_pos="1000" gwpp="-0.000071"></phone>
+                          </syll>
+                          <syll beg_pos="1000" content="tr ih" end_pos="1022" serr_msg="0" syll_accent="1" syll_score="4.827411">
+                              <phone beg_pos="1000" content="tr" end_pos="1014" gwpp="-0.001473"></phone>
+                              <phone beg_pos="1014" content="ih" end_pos="1022" gwpp="-0.069955"></phone>
+                          </syll>
+                          <syll beg_pos="1022" content="sh ax" end_pos="1033" serr_msg="0" syll_accent="0" syll_score="4.981307">
+                              <phone beg_pos="1022" content="sh" end_pos="1030" gwpp="-0.007467"></phone>
+                              <phone beg_pos="1030" content="ax" end_pos="1033" gwpp="-0.000038"></phone>
+                          </syll>
+                          <syll beg_pos="1033" content="n ax l" end_pos="1054" serr_msg="0" syll_accent="0" syll_score="3.619866">
+                              <phone beg_pos="1033" content="n" end_pos="1040" gwpp="-0.000037"></phone>
+                              <phone beg_pos="1040" content="ax" end_pos="1048" gwpp="-0.502889"></phone>
+                              <phone beg_pos="1048" content="l" end_pos="1054" gwpp="-0.567086"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="1054" content="information" dp_message="0" end_pos="1126" global_index="13" index="4" property="0" total_score="4.989482">
+                          <syll beg_pos="1054" content="ih n" end_pos="1062" serr_msg="0" syll_accent="0" syll_score="4.347967">
+                              <phone beg_pos="1054" content="ih" end_pos="1058" gwpp="-0.091034"></phone>
+                              <phone beg_pos="1058" content="n" end_pos="1062" gwpp="-0.190918"></phone>
+                          </syll>
+                          <syll beg_pos="1062" content="f ax" end_pos="1077" serr_msg="0" syll_accent="0" syll_score="4.998025">
+                              <phone beg_pos="1062" content="f" end_pos="1072" gwpp="-0.000632"></phone>
+                              <phone beg_pos="1072" content="ax" end_pos="1077" gwpp="-0.000159"></phone>
+                          </syll>
+                          <syll beg_pos="1077" content="m ey" end_pos="1102" serr_msg="0" syll_accent="1" syll_score="4.924754">
+                              <phone beg_pos="1077" content="m" end_pos="1086" gwpp="-0.001212"></phone>
+                              <phone beg_pos="1086" content="ey" end_pos="1102" gwpp="-0.029313"></phone>
+                          </syll>
+                          <syll beg_pos="1102" content="sh ax n" end_pos="1126" serr_msg="0" syll_accent="0" syll_score="4.891524">
+                              <phone beg_pos="1102" content="sh" end_pos="1110" gwpp="-0.066596"></phone>
+                              <phone beg_pos="1110" content="ax" end_pos="1117" gwpp="-0.000002"></phone>
+                              <phone beg_pos="1117" content="n" end_pos="1126" gwpp="-0.000658"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="1126" content="sil" end_pos="1148"></word>
+                      <word beg_pos="1148" content="about" dp_message="0" end_pos="1193" global_index="14" index="5" property="0" total_score="4.905143">
+                          <syll beg_pos="1148" content="ax" end_pos="1164" serr_msg="0" syll_accent="0" syll_score="3.815467">
+                              <phone beg_pos="1148" content="ax" end_pos="1164" gwpp="-0.270375"></phone>
+                          </syll>
+                          <syll beg_pos="1164" content="b aw t" end_pos="1193" serr_msg="0" syll_accent="1" syll_score="4.688275">
+                              <phone beg_pos="1164" content="b" end_pos="1174" gwpp="-0.000102"></phone>
+                              <phone beg_pos="1174" content="aw" end_pos="1184" gwpp="-0.082983"></phone>
+                              <phone beg_pos="1184" content="t" end_pos="1193" gwpp="-0.113505"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="1193" content="the" dp_message="0" end_pos="1202" global_index="15" index="6" property="0" total_score="3.998955">
+                          <syll beg_pos="1193" content="dh ax" end_pos="1202" serr_msg="0" syll_accent="0" syll_score="3.332307">
+                              <phone beg_pos="1193" content="dh" end_pos="1196" gwpp="-3.362582"></phone>
+                              <phone beg_pos="1196" content="ax" end_pos="1202" gwpp="-0.035582"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="1202" content="food" dp_message="0" end_pos="1236" global_index="16" index="7" property="0" total_score="5.000000">
+                          <syll beg_pos="1202" content="f uw d" end_pos="1236" serr_msg="0" syll_accent="0" syll_score="4.987257">
+                              <phone beg_pos="1202" content="f" end_pos="1220" gwpp="-0.000101"></phone>
+                              <phone beg_pos="1220" content="uw" end_pos="1230" gwpp="-0.000602"></phone>
+                              <phone beg_pos="1230" content="d" end_pos="1236" gwpp="-0.006966"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="1236" content="items" dp_message="0" end_pos="1296" global_index="17" index="8" property="0" total_score="4.883253">
+                          <syll beg_pos="1236" content="ay" end_pos="1252" serr_msg="0" syll_accent="1" syll_score="4.996154">
+                              <phone beg_pos="1236" content="ay" end_pos="1252" gwpp="-0.000770"></phone>
+                          </syll>
+                          <syll beg_pos="1252" content="t ax m z" end_pos="1296" serr_msg="0" syll_accent="0" syll_score="4.294486">
+                              <phone beg_pos="1252" content="t" end_pos="1259" gwpp="-0.208783"></phone>
+                              <phone beg_pos="1259" content="ax" end_pos="1266" gwpp="-0.028384"></phone>
+                              <phone beg_pos="1266" content="m" end_pos="1278" gwpp="-0.350548"></phone>
+                              <phone beg_pos="1278" content="z" end_pos="1296" gwpp="-0.053717"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="1296" content="sil" end_pos="1312"></word>
+                      <word beg_pos="1312" content="on" dp_message="0" end_pos="1342" global_index="18" index="9" property="0" total_score="4.925107">
+                          <syll beg_pos="1312" content="oo n" end_pos="1342" serr_msg="0" syll_accent="0" syll_score="4.577583">
+                              <phone beg_pos="1312" content="oo" end_pos="1334" gwpp="-0.004836"></phone>
+                              <phone beg_pos="1334" content="n" end_pos="1342" gwpp="-0.179297"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="1342" content="their" dp_message="0" end_pos="1360" global_index="19" index="10" property="0" total_score="3.889152">
+                          <syll beg_pos="1342" content="dh ar" end_pos="1360" serr_msg="1" syll_accent="0" syll_score="3.398629">
+                              <phone beg_pos="1342" content="dh" end_pos="1350" gwpp="-0.008463"></phone>
+                              <phone beg_pos="1350" content="ar" end_pos="1360" gwpp="-5.395185"></phone>
+                          </syll>
+                      </word>
+                      <word beg_pos="1360" content="menu" dp_message="0" end_pos="1402" global_index="20" index="11" property="0" total_score="4.847246">
+                          <syll beg_pos="1360" content="m eh" end_pos="1378" serr_msg="0" syll_accent="1" syll_score="4.984891">
+                              <phone beg_pos="1360" content="m" end_pos="1368" gwpp="-0.000168"></phone>
+                              <phone beg_pos="1368" content="eh" end_pos="1378" gwpp="-0.005893"></phone>
+                          </syll>
+                          <syll beg_pos="1378" content="n y uw" end_pos="1402" serr_msg="0" syll_accent="0" syll_score="3.973999">
+                              <phone beg_pos="1378" content="n" end_pos="1386" gwpp="-0.000068"></phone>
+                              <phone beg_pos="1386" content="y" end_pos="1394" gwpp="-0.000063"></phone>
+                              <phone beg_pos="1394" content="uw" end_pos="1402" gwpp="-0.955732"></phone>
+                          </syll>
+                      </word>
+                  </sentence>
+              </read_chapter>
+          </rec_paper>
+      </read_chapter>
+  </xml_result>
+2026-01-08 23:26:42,839 - scoring.xunfei_rater - INFO - WebSocket Closed
+2026-01-08 23:26:43,192 - scoring.xunfei_rater - INFO - 音频发送完毕
+2026-01-08 23:27:09,791 - scoring.speech_rater - INFO - 融合评分: 本地=1.01, 讯飞=3.68, 最终=2.61
+2026-01-08 23:27:09,793 - scoring.speech_rater - INFO - 评分完成: 总分=2.61, 发音=3.14, 内容=2.17
+2026-01-08 23:46:48,809 - scoring.speech_rater - INFO - 初始化语音评分器...
+2026-01-08 23:46:48,809 - scoring.speech_rater - INFO - 语音评分器初始化完成
+2026-01-08 23:57:23,360 - scoring.speech_rater - INFO - 初始化语音评分器...
+2026-01-08 23:57:23,361 - scoring.speech_rater - INFO - 语音评分器初始化完成
+2026-01-08 23:59:12,739 - scoring.speech_rater - INFO - 开始评分: 音频=raspberry_output.wav, 文本长度=109
+2026-01-08 23:59:12,740 - scoring.speech_rater - INFO - 调用讯飞评分, 文本: Do you agree or disa...
+2026-01-08 23:59:12,972 - scoring.xunfei_rater - INFO - 已跳过 WAV 文件头 (44 bytes)
+2026-01-08 23:59:12,974 - scoring.xunfei_rater - INFO - 发送给讯飞的评测文本(Topic): [topic]
+1. Do you agree or disagree with the following statement? Kids should be encouraged to read news on newspaper or TV from an early age.
+2026-01-08 23:59:59,225 - scoring.xunfei_rater - INFO - 讯飞评分原始XML: <?xml version="1.0" encoding="UTF-8"?>
+  <xml_result>
+      <topic lan="en" type="study" version="7.0.0.1020">
+          <rec_paper>
+              <rec_paper accuracy_score="0.000000" beg_pos="133" content="rec_paper" end_pos="4014" except_info="28676" is_rejected="true" phone_score="5.000000" reject_type="64" speeking_speed="137.370758" total_score="0.000000">
+                  <sentence content="are you agree with the statement first the young children could learn how to read and in " index="0">
+                      <word beg_pos="145" content="are" end_pos="173"></word>
+                      <word beg_pos="173" content="you" end_pos="180"></word>
+                      <word beg_pos="180" content="agree" end_pos="208"></word>
+                      <word beg_pos="208" content="with" end_pos="229"></word>
+                      <word beg_pos="229" content="the" end_pos="241"></word>
+                      <word beg_pos="241" content="statement" end_pos="313"></word>
+                      <word beg_pos="313" content="first" end_pos="389"></word>
+                      <word beg_pos="389" content="the" end_pos="461"></word>
+                      <word beg_pos="461" content="young" end_pos="485"></word>
+                      <word beg_pos="485" content="children" end_pos="525"></word>
+                      <word beg_pos="525" content="could" end_pos="554"></word>
+                      <word beg_pos="554" content="learn" end_pos="574"></word>
+                      <word beg_pos="574" content="how" end_pos="603"></word>
+                      <word beg_pos="603" content="to" end_pos="621"></word>
+                      <word beg_pos="621" content="read" end_pos="653"></word>
+                      <word beg_pos="653" content="and" end_pos="719"></word>
+                      <word beg_pos="719" content="in" end_pos="815"></word>
+                  </sentence>
+                  <sentence content="increase their reading ability by doing such things secondly if they can " index="1">
+                      <word beg_pos="889" content="increase" end_pos="954"></word>
+                      <word beg_pos="954" content="their" end_pos="991"></word>
+                      <word beg_pos="991" content="reading" end_pos="1051"></word>
+                      <word beg_pos="1051" content="ability" end_pos="1117"></word>
+                      <word beg_pos="1117" content="by" end_pos="1263"></word>
+                      <word beg_pos="1263" content="doing" end_pos="1299"></word>
+                      <word beg_pos="1299" content="such" end_pos="1326"></word>
+                      <word beg_pos="1326" content="things" end_pos="1368"></word>
+                      <word beg_pos="1368" content="secondly" end_pos="1465"></word>
+                      <word beg_pos="1465" content="if" end_pos="1471"></word>
+                      <word beg_pos="1471" content="they" end_pos="1555"></word>
+                      <word beg_pos="1555" content="can" end_pos="1613"></word>
+                  </sentence>
+                  <sentence content="brought down there prices their presents so that they could learn more knowledge " index="2">
+                      <word beg_pos="1741" content="brought" end_pos="1782"></word>
+                      <word beg_pos="1782" content="down" end_pos="1805"></word>
+                      <word beg_pos="1805" content="there" end_pos="1832"></word>
+                      <word beg_pos="1832" content="prices" end_pos="1909"></word>
+                      <word beg_pos="1909" content="their" end_pos="1955"></word>
+                      <word beg_pos="1955" content="presents" end_pos="2024"></word>
+                      <word beg_pos="2024" content="so" end_pos="2143"></word>
+                      <word beg_pos="2143" content="that" end_pos="2168"></word>
+                      <word beg_pos="2168" content="they" end_pos="2185"></word>
+                      <word beg_pos="2185" content="could" end_pos="2219"></word>
+                      <word beg_pos="2219" content="learn" end_pos="2245"></word>
+                      <word beg_pos="2245" content="more" end_pos="2263"></word>
+                      <word beg_pos="2263" content="knowledge" end_pos="2325"></word>
+                  </sentence>
+                  <sentence content="so i think it&apos;s very useful for them to reading and watching tv in early age " index="3">
+                      <word beg_pos="2431" content="so" end_pos="2504"></word>
+                      <word beg_pos="2504" content="i" end_pos="2529"></word>
+                      <word beg_pos="2529" content="think" end_pos="2559"></word>
+                      <word beg_pos="2559" content="it&apos;s" end_pos="2577"></word>
+                      <word beg_pos="2577" content="very" end_pos="2607"></word>
+                      <word beg_pos="2607" content="useful" end_pos="2669"></word>
+                      <word beg_pos="2669" content="for" end_pos="2715"></word>
+                      <word beg_pos="2715" content="them" end_pos="2739"></word>
+                      <word beg_pos="2739" content="to" end_pos="2797"></word>
+                      <word beg_pos="2797" content="reading" end_pos="2849"></word>
+                      <word beg_pos="2849" content="and" end_pos="2864"></word>
+                      <word beg_pos="2864" content="watching" end_pos="2901"></word>
+                      <word beg_pos="2901" content="tv" end_pos="2935"></word>
+                      <word beg_pos="2935" content="in" end_pos="2983"></word>
+                      <word beg_pos="2983" content="early" end_pos="3026"></word>
+                      <word beg_pos="3026" content="age" end_pos="3055"></word>
+                  </sentence>
+                  <sentence content="that&apos;s all " index="4">
+                      <word beg_pos="3185" content="that&apos;s" end_pos="3217"></word>
+                      <word beg_pos="3217" content="all" end_pos="3237"></word>
+                  </sentence>
+                  <sentence content="thank you " index="5">
+                      <word beg_pos="3301" content="thank" end_pos="3337"></word>
+                      <word beg_pos="3337" content="you" end_pos="3355"></word>
+                  </sentence>
+                  <sentence content="" index="6"></sentence>
+              </rec_paper>
+          </rec_paper>
+      </topic>
+  </xml_result>
+2026-01-08 23:59:59,249 - scoring.xunfei_rater - ERROR - 【严重错误】讯飞评分被拒绝! Reject Type: 64, Except Info: 28676
+2026-01-08 23:59:59,255 - scoring.xunfei_rater - ERROR - 错误码 28676 说明：语音与文本/题目不匹配或匹配度过低。原因可能是：1. 录音不清晰/噪音过大 2. 声音太小导致只识别到只言片语 3. 说的是中文而非英文
+2026-01-08 23:59:59,361 - scoring.xunfei_rater - INFO - WebSocket Closed
+2026-01-08 23:59:59,362 - scoring.xunfei_rater - ERROR - 讯飞评分出错: Audio Rejected: No valid speech detected (Error 28676)
+2026-01-08 23:59:59,983 - scoring.xunfei_rater - INFO - 音频发送完毕
+2026-01-09 00:00:24,783 - scoring.speech_rater - INFO - 评分完成: 总分=0.95, 发音=1.73, 内容=0.17

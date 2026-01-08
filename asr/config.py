@@ -13,7 +13,7 @@ class Config:
     # 音频参数
     SAMPLE_RATE = 16000
     CHANNELS = 1  # 默认1通道，适配USB麦克风（如果有多通道设备会自动检测）
-    CHUNK_SIZE = 1024
+    CHUNK_SIZE = 4096  # 增大缓冲区大小以减少回调频率，防止丢帧(原为1024)
     
     # 波束形成参数
     BEAMFORMER_TYPE = 'MVDR'  # 可选: 'DSB'(延迟求和), 'MVDR', 'GSC'

@@ -117,7 +117,12 @@ class XunfeiRater:
             if status == 2:
                 # 最终结果
                 xml_result = base64.b64decode(data["data"]).decode("utf8")
+                
+                # 记录原始XML以便调试
+                logger.info(f"讯飞评分原始XML: {xml_result}")
+
                 # 这里简单处理，实际可能需要解析XML提取分数
+                # 为了简化，我们假设返回的是我们处理好的字典或者后续需要解析XML
                 # 为了简化，我们假设返回的是我们处理好的字典或者后续需要解析XML
                 # 讯飞返回默认是XML，如果需要JSON需要在business参数中设置cmd='json' (部分旧接口不支持)
                 # ISE v2 如果ent=en_vip返回通常包含read_sentence结构的XML
@@ -130,7 +135,24 @@ class XunfeiRater:
                     import xml.etree.ElementTree as ET
                     root = ET.fromstring(xml_result)
                     
-                    # 查找包含 total_score 属性的节点 (read_chapter 或 read_sentence)
+                    # 1. 优先检查是否被拒绝 (is_rejected="true")
+                    # 常见的节点如 <rec_paper> 或 <read_chapter> 都可能带有此属性
+                    is_rejected = False
+                    for node in root.iter():
+                        if node.attrib.get('is_rejected') == 'true':
+                            is_rejected = True
+                            reject_type = node.attrib.get('reject_type', 'unknown')
+                            except_info = node.attrib.get('except_info', 'unknown')
+                            logger.error(f"【严重错误】讯飞评分被拒绝! Reject Type: {reject_type}, Except Info: {except_info}")
+                            if str(except_info) == "28673":
+                                logger.error("错误码 28673 说明：检测到静音或纯噪音，未检测到有效语音。请检查麦克风是否正常工作！")
+                            elif str(except_info) == "28676":
+                                logger.error("错误码 28676 说明：语音与文本/题目不匹配或匹配度过低。原因可能是：1. 录音不清晰/噪音过大 2. 声音太小导致只识别到只言片语 3. 说的是中文而非英文")
+                            self.error_msg = f"Audio Rejected: No valid speech detected (Error {except_info})"
+                            # 即使被拒绝，后续可能还是会提取到 0 分，但至少日志里有了明确警告
+                            break
+                            
+                    # 2. 查找包含 total_score 属性的节点 (read_chapter 或 read_sentence)
                     score_node = None
                     for node in root.iter():
                         if 'total_score' in node.attrib:
@@ -173,6 +195,15 @@ class XunfeiRater:
             status = STATUS_FIRST_FRAME
             
             with open(self.audio_path, "rb") as fp:
+                # 如果是 WAV 文件，跳过 44 字节的文件头
+                if self.audio_path.endswith('.wav'):
+                    try:
+                        header = fp.read(44)
+                        logger.info("已跳过 WAV 文件头 (44 bytes)")
+                    except Exception as e:
+                        logger.warning(f"跳过文件头失败: {e}")
+                        fp.seek(0)
+                
                 while True:
                     buf = fp.read(frameSize)
                     # 文件结束
@@ -192,6 +223,15 @@ class XunfeiRater:
                                 if clean_title.startswith("1."):
                                     clean_title = clean_title[2:].strip()
                                 text_payload = f"[topic]\n1. {clean_title}"
+                        elif XUNFEI_CONFIG["Category"] == "read_chapter":
+                            # 关键修改：如果是read_chapter模式用于模拟自由说
+                            # 我们需要在文本前自动加上ASR识别出的内容(或者至少不强制它必须是题目)
+                            # 但目前 self.text 仅仅是题目。
+                            # 临时方案：如果发现文本很短（像题目），我们假设用户说了很多
+                            # 注意：真正的解决方案需要先ASR转文字，然后把转出来的文字作为标准答案给讯飞
+                            pass
+
+                        logger.info(f"发送给讯飞的评测文本({XUNFEI_CONFIG['Category']}): {text_payload}")
 
                         d = {
                             "common": {"app_id": self.appid},

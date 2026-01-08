@@ -19,11 +19,37 @@ except ImportError:
     XunfeiRater = None
 
 # 配置日志
-logging.basicConfig(
-    level=getattr(logging, LOG_CONFIG["level"]),
-    format=LOG_CONFIG["format"]
-)
 logger = logging.getLogger(__name__)
+
+# 配置日志文件输出
+try:
+    log_file = LOG_CONFIG["file"]
+    log_dir = os.path.dirname(log_file)
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
+        
+    # 添加文件处理器
+    file_handler = logging.FileHandler(log_file, encoding='utf-8')
+    file_handler.setFormatter(logging.Formatter(LOG_CONFIG["format"]))
+    
+    # 将处理器添加到 scoring 包的根 logger，这样 xunfei_rater 等子模块的日志也会被记录
+    package_logger = logging.getLogger("scoring")
+    package_logger.addHandler(file_handler)
+    package_logger.setLevel(getattr(logging, LOG_CONFIG["level"]))
+    
+    # 确保 logger 变量指向当前模块的 logger (用于本文件的日志记录)
+    logger = logging.getLogger(__name__)
+except Exception as e:
+    print(f"Warning: Failed to configure file logging: {e}")
+    # 确保 logger 变量已定义
+    logger = logging.getLogger(__name__)
+
+# 保留基本配置以防独立运行
+if not logging.getLogger().handlers:
+    logging.basicConfig(
+        level=getattr(logging, LOG_CONFIG["level"]),
+        format=LOG_CONFIG["format"]
+    )
 
 
 class ScoreResult:
