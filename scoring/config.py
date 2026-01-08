@@ -89,6 +89,12 @@ XUNFEI_CONFIG = {
     'HostUrl': 'wss://ise-api.xfyun.cn/v2/open-ise',
     'Sub': 'ise',
     'Ent': 'en_vip',
-    'Category': 'read_chapter',
+    'Category': 'topic',
+}
+
+# 综合评分权重配置
+SCORING_WEIGHTS = {
+    "local_algorithm": 0.4,   # 本地算法权重
+    "large_model": 0.6,       # 大模型(讯飞)权重
 }
 

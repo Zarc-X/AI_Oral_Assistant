@@ -47,8 +47,13 @@ def test_xunfei():
     
     # 2. 准备测试文件
     print("[2/3] 准备测试音频...")
-    test_wav = os.path.join(os.path.dirname(os.path.abspath(__file__)), "test_xunfei_dummy.wav")
-    create_dummy_wav(test_wav)
+    # test_wav = os.path.join(os.path.dirname(os.path.abspath(__file__)), "test_xunfei_dummy.wav")
+    # create_dummy_wav(test_wav)
+    # 使用真实音频测试
+    test_wav = os.path.join(project_root, "test_recording.wav")
+    if not os.path.exists(test_wav):
+        print(f"错误: 找不到测试音频 {test_wav}")
+        return
     
     # 评测文本 (与音频内容无关，因为是静音，主要测试流程)
     test_text = "Hello world"
@@ -71,7 +76,7 @@ def test_xunfei():
                 print("未解析到分数 (可能是静音导致无法评分)")
                 
             print(f"原始响应数据长度: {len(result.get('raw_xml', ''))} 字符")
-            # print(result.get('raw_xml')[:200] + "...") # 打印部分XML
+            print(result.get('raw_xml')[:500] + "...") # 打印部分XML
             
         else:
             print("\n测试失败: 未收到结果")
@@ -84,12 +89,13 @@ def test_xunfei():
         traceback.print_exc()
     finally:
         # 清理临时文件
-        if os.path.exists(test_wav):
-            try:
-                os.remove(test_wav)
-                print("清理临时文件完成")
-            except:
-                pass
+        pass
+        # if os.path.exists(test_wav):
+        #     try:
+        #         os.remove(test_wav)
+        #         print("清理临时文件完成")
+        #     except:
+        #         pass
 
 if __name__ == "__main__":
     test_xunfei()

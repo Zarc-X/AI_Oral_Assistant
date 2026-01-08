@@ -129,14 +129,25 @@ class XunfeiRater:
                 try:
                     import xml.etree.ElementTree as ET
                     root = ET.fromstring(xml_result)
-                    # 假如是read_sentence
-                    total_score = root.find(".//total_score")
-                    if total_score is not None:
+                    
+                    # 查找包含 total_score 属性的节点 (read_chapter 或 read_sentence)
+                    score_node = None
+                    for node in root.iter():
+                        if 'total_score' in node.attrib:
+                            score_node = node
+                            break
+
+                    if score_node is not None:
                         # 讯飞是5分制，我们需要转换成0-4分或保留
-                        score_val = float(total_score.attrib.get('value', 0))
+                        score_val = float(score_node.attrib.get('total_score', 0))
                         self.result['total_score'] = score_val
                         # 转换到0-4分制 (5分 -> 4分)
                         self.result['converted_score'] = (score_val / 5.0) * 4.0
+                        
+                        # 提取更多细节 (如果存在)
+                        for attr in ['accuracy_score', 'fluency_score', 'integrity_score', 'standard_score']:
+                            if attr in score_node.attrib:
+                                self.result[attr] = float(score_node.attrib[attr])
                 except Exception as e:
                     logger.warning(f"XML解析失败: {e}")
                 
@@ -170,6 +181,18 @@ class XunfeiRater:
                     
                     # 第一帧处理
                     if status == STATUS_FIRST_FRAME:
+                        # 如果是topic模式，需要处理文本格式
+                        text_payload = self.text
+                        if XUNFEI_CONFIG["Category"] == "topic":
+                            # 确保文本符合[topic] 1. xxx 格式
+                            if not text_payload.strip().startswith("[topic]"):
+                                # 假设传入的是题目本身，自动添加前缀
+                                # 移除可能存在的 "1. " 前缀以避免重复
+                                clean_title = text_payload.strip()
+                                if clean_title.startswith("1."):
+                                    clean_title = clean_title[2:].strip()
+                                text_payload = f"[topic]\n1. {clean_title}"
+
                         d = {
                             "common": {"app_id": self.appid},
                             "business": {
@@ -179,13 +202,13 @@ class XunfeiRater:
                                 "cmd": "ssb",
                                 "auf": "audio/L16;rate=16000",
                                 "aue": "raw",
-                                "text": self.text,
+                                "text": text_payload,
                                 "ttp_skip": True,
                                 "aus": 1,
                             },
                             "data": {
                                 "status": 0,
-                                "audio": str(base64.b64encode(buf), 'utf-8'),
+                                "data": str(base64.b64encode(buf), 'utf-8'),
                             }
                         }
                         d = json.dumps(d)
@@ -201,7 +224,7 @@ class XunfeiRater:
                             },
                             "data": {
                                 "status": 1,
-                                "audio": str(base64.b64encode(buf), 'utf-8'),
+                                "data": str(base64.b64encode(buf), 'utf-8'),
                             }
                         }
                         ws.send(json.dumps(d))
@@ -215,7 +238,7 @@ class XunfeiRater:
                             },
                             "data": {
                                 "status": 2,
-                                "audio": str(base64.b64encode(buf), 'utf-8'),
+                                "data": str(base64.b64encode(buf), 'utf-8'),
                             }
                         }
                         ws.send(json.dumps(d))
